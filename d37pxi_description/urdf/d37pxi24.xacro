@@ -6,15 +6,20 @@
 <!-- =================================================================================== -->
 
 <!-- <xacro:property name="robot_name" value="d37pxi24" /> -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="d37pxi24">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="d37pxi">
+  <xacro:property name="tf_prefix" value=""/>
+
+
+
   <!-- Base Link -->
-  <link name="base_link"/>
+  <link name="${tf_prefix}/base_link"/>
   <!-- Body {{{ -->
   <joint name="base_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="body_link"/>
+    <parent link="${tf_prefix}/base_link"/>
+    <child link="${tf_prefix}/body_link"/>
   </joint>
-  <link name="body_link">
+
+  <link name="${tf_prefix}/body_link">
     <visual>
       <geometry>
         <mesh filename="package://d37pxi_description/meshes/d37pxi24-body.dae"/>
@@ -31,16 +36,18 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
+
   <!-- }}} Body ends here -->
   <!-- Blade Arm {{{ -->
-  <joint name="blade_arm_joint" type="revolute">
+  <joint name="lift_joint" type="revolute">
     <origin xyz="0.6718 0 0.38606"/>
     <axis xyz="0 1 0"/>
-    <parent link="body_link"/>
-    <child link="blade_arm_link"/>
+    <parent link="${tf_prefix}/body_link"/>
+    <child link="${tf_prefix}/blade_arm_link"/>
     <limit effort="500" lower="-0.41015237421866746" upper="0.18675022996339324" velocity="6.159937255"/>
   </joint>
-  <link name="blade_arm_link">
+
+  <link name="${tf_prefix}/blade_arm_link">
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
@@ -59,16 +66,18 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
+
   <!-- }}} Blade Arm ends here -->
   <!-- Blade Arm Cylinder {{{ -->
   <joint name="blade_arm_cylinder_joint" type="continuous">
     <origin xyz="0.54437 0 0.90368"/>
     <axis xyz="0 1 0"/>
-    <parent link="body_link"/>
-    <child link="blade_arm_cylinder_link"/>
-    <mimic joint="blade_arm_joint" multiplier="0.9"/>
+    <parent link="${tf_prefix}/body_link"/>
+    <child link="${tf_prefix}/blade_arm_cylinder_link"/>
+    <mimic joint="lift_joint" multiplier="0.9"/>
   </joint>
-  <link name="blade_arm_cylinder_link">
+
+  <link name="${tf_prefix}/blade_arm_cylinder_link">
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
@@ -87,17 +96,19 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
+
   <!-- }}} Blade Arm Cylinder ends here -->
   <!-- Blade Arm Piston {{{ -->
   <joint name="blade_arm_piston_joint" type="prismatic">
     <origin xyz="0 0 0"/>
     <axis xyz="1.0055 0 -0.056785"/>
-    <parent link="blade_arm_cylinder_link"/>
-    <child link="blade_arm_piston_link"/>
+    <parent link="${tf_prefix}/blade_arm_cylinder_link"/>
+    <child link="${tf_prefix}/blade_arm_piston_link"/>
     <limit effort="500" lower="-0.22" upper="0.05" velocity="6.159937255"/>
     <mimic joint="blade_arm_cylinder_joint" multiplier="0.6"/>
   </joint>
-  <link name="blade_arm_piston_link">
+
+  <link name="${tf_prefix}/blade_arm_piston_link">
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
@@ -116,27 +127,30 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
+
   <!-- }}} Blade Arm Piston ends here -->
   <!-- Blade Angle {{{ -->
-  <joint name="blade_angle_joint" type="revolute">
+  <joint name="angle_joint" type="revolute">
     <origin xyz="1.5881 0 -0.10373"/>
     <axis xyz="0 0 1"/>
-    <parent link="blade_arm_link"/>
-    <child link="blade_angle_link"/>
+    <parent link="${tf_prefix}/blade_arm_link"/>
+    <child link="${tf_prefix}/blade_angle_link"/>
     <limit effort="500" lower="-0.4188790204786391" upper="0.4188790204786391" velocity="6.159937255"/>
   </joint>
-  <link name="blade_angle_link"/>
+
+  <link name="${tf_prefix}/blade_angle_link"/>
   <!-- }}} Blade Angle ends here -->
   <!-- Blade Angle Piston Right {{{ -->
   <joint name="blade_angle_piston_right_joint" type="prismatic">
     <origin xyz="0.50775 -0.44941 0.18324"/>
     <axis xyz="1.093 -0.059226 -0.062315"/>
-    <parent link="blade_arm_link"/>
-    <child link="blade_angle_piston_right_link"/>
+    <parent link="${tf_prefix}/blade_arm_link"/>
+    <child link="${tf_prefix}/blade_angle_piston_right_link"/>
     <limit effort="500" lower="-0.24" upper="0.18" velocity="6.159937255"/>
-    <mimic joint="blade_angle_joint" multiplier="0.5"/>
+    <mimic joint="angle_joint" multiplier="0.5"/>
   </joint>
-  <link name="blade_angle_piston_right_link">
+
+  <link name="${tf_prefix}/blade_angle_piston_right_link">
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
@@ -155,17 +169,19 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
+
   <!-- }}} Blade Angle Piston Right ends here -->
   <!-- Blade Angle Piston Left {{{ -->
   <joint name="blade_angle_piston_left_joint" type="prismatic">
     <origin xyz="0.50775 0.44941 0.18324"/>
     <axis xyz="1.093 0.059226 -0.062315"/>
-    <parent link="blade_arm_link"/>
-    <child link="blade_angle_piston_left_link"/>
+    <parent link="${tf_prefix}/blade_arm_link"/>
+    <child link="${tf_prefix}/blade_angle_piston_left_link"/>
     <limit effort="500" lower="-0.24" upper="0.18" velocity="6.159937255"/>
-    <mimic joint="blade_angle_joint" multiplier="-0.5"/>
+    <mimic joint="angle_joint" multiplier="-0.5"/>
   </joint>
-  <link name="blade_angle_piston_left_link">
+
+  <link name="${tf_prefix}/blade_angle_piston_left_link">
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
@@ -184,16 +200,18 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
+
   <!-- }}} Blade Angle Piston Left ends here -->
   <!-- Blade Tilt {{{ -->
-  <joint name="blade_tilt_joint" type="revolute">
+  <joint name="tilt_joint" type="revolute">
     <origin xyz="0 0 0"/>
     <axis xyz="1 0 0"/>
-    <parent link="blade_angle_link"/>
-    <child link="blade_link"/>
+    <parent link="${tf_prefix}/blade_angle_link"/>
+    <child link="${tf_prefix}/blade_link"/>
     <limit effort="500" lower="-0.1363596851440582" upper="0.1363596851440582" velocity="6.159937255"/>
   </joint>
-  <link name="blade_link">
+
+  <link name="${tf_prefix}/blade_link">
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
