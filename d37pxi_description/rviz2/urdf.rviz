@@ -5,14 +5,15 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /RobotModel1
         - /TF1
+        - /TF1/Frames1
         - /TF1/Tree1
       Splitter Ratio: 0.5
-    Tree Height: 370
+    Tree Height: 483
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
-      - /Current View1/Focal Point1
     Name: Views
     Splitter Ratio: 0.5
 Visualization Manager:
@@ -36,7 +37,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.10000000149011612
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
       Description File: ""
@@ -109,9 +110,9 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         base_link:
-          Value: true
+          Value: false
         blade_angle_link:
           Value: true
         blade_angle_piston_left_link:
@@ -129,12 +130,12 @@ Visualization Manager:
         body_link:
           Value: true
         map:
-          Value: true
-      Marker Scale: 3
+          Value: false
+      Marker Scale: 1
       Name: TF
-      Show Arrows: true
+      Show Arrows: false
       Show Axes: true
-      Show Names: true
+      Show Names: false
       Tree:
         map:
           base_link:
@@ -154,7 +155,7 @@ Visualization Manager:
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
+    Background Color: 255; 255; 255
     Fixed Frame: map
     Frame Rate: 30
   Name: root
@@ -166,36 +167,31 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz_default_plugins/Orbit
-      Distance: 6.171969413757324
+      Angle: 0
+      Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
-      Focal Point:
-        X: 2.5871498584747314
-        Y: -0.6359495520591736
-        Z: 0.6056082844734192
-      Focal Shape Fixed Size: false
-      Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.654796838760376
+      Scale: 171.0038299560547
       Target Frame: <Fixed Frame>
-      Value: Orbit (rviz2)
-      Yaw: 0.8154017329216003
+      Value: TopDownOrtho (rviz_default_plugins)
+      X: 1.246941089630127
+      Y: -0.007908716797828674
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 921
+  Height: 1109
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000015600000343fc0200000002fb000000100044006900730070006c006100790073010000003b000001f3000000c700fffffffb0000000a0056006900650077007301000002340000014a000000a000ffffff000004b90000034300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000010000000000000156000003fffc0200000002fb000000100044006900730070006c006100790073010000003b00000264000000c700fffffffb0000000a0056006900650077007301000002a500000195000000a000ffffff000005ca000003ff00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1557
-  X: 3632
-  Y: 226
+  Width: 1830
+  X: 3417
+  Y: 106
