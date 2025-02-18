@@ -5,11 +5,10 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1
-        - /TF1
+        - /TF1/Status1
         - /TF1/Frames1
         - /TF1/Tree1
-      Splitter Ratio: 0.5
+      Splitter Ratio: 0.41637009382247925
     Tree Height: 483
   - Class: rviz_common/Views
     Expanded:
@@ -20,6 +19,24 @@ Visualization Manager:
   Class: ""
   Displays:
     - Alpha: 0.5
+      Cell Size: 50
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: MapGrid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 1000
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.5
       Cell Size: 1
       Class: rviz_default_plugins/Grid
       Color: 160; 160; 164
@@ -27,7 +44,7 @@ Visualization Manager:
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
-      Name: Grid
+      Name: LocalGrid
       Normal Cell Count: 0
       Offset:
         X: 0
@@ -35,7 +52,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: <Fixed Frame>
+      Reference Frame: base_link
       Value: true
     - Alpha: 0.10000000149011612
       Class: rviz_default_plugins/RobotModel
@@ -93,6 +110,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        /gnss_temp_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
@@ -110,9 +131,9 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: false
+        All Enabled: true
         base_link:
-          Value: false
+          Value: true
         blade_angle_link:
           Value: true
         blade_angle_piston_left_link:
@@ -129,13 +150,15 @@ Visualization Manager:
           Value: true
         body_link:
           Value: true
+        gnss_temp_link:
+          Value: true
         map:
-          Value: false
+          Value: true
       Marker Scale: 1
       Name: TF
-      Show Arrows: false
+      Show Arrows: true
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
         map:
           base_link:
@@ -151,6 +174,8 @@ Visualization Manager:
                   {}
                 blade_angle_piston_right_link:
                   {}
+              gnss_temp_link:
+                {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -167,21 +192,26 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
-      Class: rviz_default_plugins/TopDownOrtho
+      Class: rviz_default_plugins/Orbit
+      Distance: 16.537492752075195
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Focal Point:
+        X: -1.845237374305725
+        Y: -3.4851245880126953
+        Z: 1.8722279071807861
+      Focal Shape Fixed Size: false
+      Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 171.0038299560547
-      Target Frame: <Fixed Frame>
-      Value: TopDownOrtho (rviz_default_plugins)
-      X: 1.246941089630127
-      Y: -0.007908716797828674
+      Pitch: 1.1303976774215698
+      Target Frame: base_link
+      Value: Orbit (rviz_default_plugins)
+      Yaw: 6.013592720031738
     Saved: ~
 Window Geometry:
   Displays:
@@ -189,9 +219,9 @@ Window Geometry:
   Height: 1109
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000156000003fffc0200000002fb000000100044006900730070006c006100790073010000003b00000264000000c700fffffffb0000000a0056006900650077007301000002a500000195000000a000ffffff000005ca000003ff00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000010000000000000234000003fffc0200000002fb000000100044006900730070006c006100790073010000003b00000264000000c700fffffffb0000000a0056006900650077007301000002a500000195000000a000ffffff000004ec000003ff00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1830
-  X: 3417
-  Y: 106
+  X: 3353
+  Y: 42

@@ -58,11 +58,11 @@ def generate_launch_description():
     return LaunchDescription([
 
         DeclareLaunchArgument('gui',  default_value="true",),
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            arguments=['0', '0', '0', '0', '0', '0', 'map', f'{tf_prefix_val}/base_link']
-        ),
+        # Node(
+        #     package='tf2_ros',
+        #     executable='static_transform_publisher',
+        #     arguments=['0', '0', '0', '0', '0', '0', 'map', f'{tf_prefix_val}/base_link']
+        # ),
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
