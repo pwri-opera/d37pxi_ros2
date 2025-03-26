@@ -5,9 +5,10 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /TF1/Status1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /Pose1
+        - /Path1
       Splitter Ratio: 0.41637009382247925
     Tree Height: 483
   - Class: rviz_common/Views
@@ -178,6 +179,54 @@ Visualization Manager:
                 {}
       Update Interval: 0
       Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz_default_plugins/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/gnss_compass/global_pose
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Billboards
+      Line Width: 0.10000000149011612
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: Arrows
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.699999988079071
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/gnss_compass/global_pose_past
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255
@@ -193,25 +242,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 16.537492752075195
+      Distance: 62.71089553833008
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -1.845237374305725
-        Y: -3.4851245880126953
-        Z: 1.8722279071807861
+        X: 0
+        Y: 0
+        Z: 0
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.1303976774215698
+      Pitch: 1.3953979015350342
       Target Frame: base_link
       Value: Orbit (rviz_default_plugins)
-      Yaw: 6.013592720031738
+      Yaw: 6.253582954406738
     Saved: ~
 Window Geometry:
   Displays:
@@ -219,9 +268,9 @@ Window Geometry:
   Height: 1109
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000234000003fffc0200000002fb000000100044006900730070006c006100790073010000003b00000264000000c700fffffffb0000000a0056006900650077007301000002a500000195000000a000ffffff000004ec000003ff00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000001a9000003fffc0200000002fb000000100044006900730070006c006100790073010000003b00000264000000c700fffffffb0000000a0056006900650077007301000002a500000195000000a000ffffff00000577000003ff00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1830
-  X: 3353
-  Y: 42
+  X: 3289
+  Y: -22
