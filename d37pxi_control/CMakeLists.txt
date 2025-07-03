@@ -15,44 +15,44 @@ find_package(sensor_msgs REQUIRED)
 find_package(com3_msgs REQUIRED)
 
 ## COMPILE
-add_library(
-  ${PROJECT_NAME}
-  SHARED
-  # src/upper_arm_unity_hardware.cpp
-  # src/upper_arm_effort_hardware.cpp
-  # src/upper_arm_velocity_hardware.cpp
-)
-target_include_directories(
-  ${PROJECT_NAME}
-  PRIVATE
-  include
-)
-ament_target_dependencies(
-  ${PROJECT_NAME}
-  # hardware_interface
-  # pluginlib
-  # rclcpp
-  # std_msgs
-  # sensor_msgs
-  # com3_msgs
-  # rclcpp_lifecycle
-)
+# add_library(
+#   ${PROJECT_NAME}
+#   SHARED
+#   # src/upper_arm_unity_hardware.cpp
+#   # src/upper_arm_effort_hardware.cpp
+#   # src/upper_arm_velocity_hardware.cpp
+# )
+# target_include_directories(
+#   ${PROJECT_NAME}
+#   PRIVATE
+#   include
+# )
+# ament_target_dependencies(
+#   ${PROJECT_NAME}
+#   # hardware_interface
+#   # pluginlib
+#   # rclcpp
+#   # std_msgs
+#   # sensor_msgs
+#   # com3_msgs
+#   # rclcpp_lifecycle
+# )
 
 ## Export hardware pligins
 # pluginlib_export_plugin_description_file(hardware_interface d37pxi_control.xml)
 
-install(
-  TARGETS ${PROJECT_NAME}
-  DESTINATION lib
-)
-install(DIRECTORY
-  config
-  DESTINATION share/${PROJECT_NAME}/
-)
-install(
-  DIRECTORY include/
-  DESTINATION include
-)
+# install(
+#   TARGETS ${PROJECT_NAME}
+#   DESTINATION lib
+# )
+# install(DIRECTORY
+#   config
+#   DESTINATION share/${PROJECT_NAME}/
+# )
+# install(
+#   DIRECTORY include/
+#   DESTINATION include
+# )
 
 
 
