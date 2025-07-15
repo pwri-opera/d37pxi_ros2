@@ -15,8 +15,8 @@ class PoseToOdomNode(Node):
     def __init__(self):
         super().__init__('pose_to_odom')
 
-        odom_header_frame_param = self.declare_parameter('odom_header_frame', 'world')
-        odom_child_frame_param = self.declare_parameter('odom_child_frame', '/d37pxi/gnss/base_link')
+        odom_header_frame_param = self.declare_parameter('odom_header_frame', 'map')
+        odom_child_frame_param = self.declare_parameter('odom_child_frame', '/d37pxi/base_link')
         poseStamped_topic_name_param = self.declare_parameter('poseStamped_topic_name', '/d37pxi/global_pose')
         odom_topic_name_param = self.declare_parameter('odom_topic_name', '/d37pxi/gnss_odom')
 

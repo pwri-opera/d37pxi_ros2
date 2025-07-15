@@ -36,6 +36,8 @@ setup(
             'poseStamped2Odometry = d37pxi_navigation.poseStamped2Odometry:main',
             'odom_broadcaster = d37pxi_navigation.odom_broadcaster:main',
             'map_generator = d37pxi_navigation.map_generator:main',
+            'message_converter_gnss = d37pxi_navigation.message_converter_gnss:main',
+            'message_converter_odom = d37pxi_navigation.message_converter_odom:main',
         ],
     },
 )

@@ -13,8 +13,8 @@ ekf_global:
         two_d_mode: true
 
         map_frame: map
-        odom_frame: d37pxi_tf/odom
-        base_link_frame: d37pxi_tf/base_link
+        odom_frame: d37pxi/odom
+        base_link_frame: d37pxi/base_link
         world_frame: map
 
 
