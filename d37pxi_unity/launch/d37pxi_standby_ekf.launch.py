@@ -258,7 +258,8 @@ def generate_nodes(context, *args, **kwargs):
             respawn=use_respawn,
             respawn_delay=2.0,
             parameters=[configured_params],
-            remappings=[('cmd_vel', 'tracks/cmd_vel')]),
+            # remappings=[('cmd_vel', 'tracks/cmd_vel')]
+            ),
         Node(
             package='nav2_bt_navigator',
             executable='bt_navigator',
@@ -288,7 +289,7 @@ def generate_nodes(context, *args, **kwargs):
             respawn_delay=2.0,
             parameters=[configured_params],
             remappings=[('cmd_vel', 'cmd_vel_nav'), 
-                        ('cmd_vel_smoothed', 'tracks/cmd_vel')]),
+                        ('cmd_vel_smoothed', 'cmd_vel')]),
         Node(
             package='nav2_lifecycle_manager',
             executable='lifecycle_manager',
