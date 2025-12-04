@@ -35,6 +35,7 @@ setup(
         'console_scripts': [
             'poseStamped2Odometry = d37pxi_navigation.poseStamped2Odometry:main',
             'odom_broadcaster = d37pxi_navigation.odom_broadcaster:main',
+            'odom_pose = d37pxi_navigation.odom_pose:main',
             'map_generator = d37pxi_navigation.map_generator:main',
         ],
     },
