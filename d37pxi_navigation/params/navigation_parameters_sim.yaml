@@ -158,15 +158,15 @@ controller_server:
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: false
-      min_vel_x: -3.0
+      min_vel_x: -1.0
       min_vel_y: 0.0
-      max_vel_x: 3.0
+      max_vel_x: 1.0
       max_vel_y: 0.0
-      max_vel_theta: 1.0
+      max_vel_theta: 0.15
       min_speed_xy: -2.0
       max_speed_xy: 2.0
-      min_speed_theta: -1.0
-      max_speed_theta: 1.0
+      min_speed_theta: -0.15
+      max_speed_theta: 0.15
       acc_lim_x: 3.0 
       acc_lim_y: 0.0
       acc_lim_theta: 3.1
@@ -191,8 +191,8 @@ controller_server:
       PathAlign.forward_point_distance: 0.1
       GoalAlign.scale: 24.0
       GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
+      PathDist.scale: 5.0
+      GoalDist.scale: 4.0
       RotateToGoal.scale: 32.0
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
@@ -278,8 +278,8 @@ global_costmap:
       height: 100
       width: 100
       observation_sources: scan
-      origin_x: -20.0
-      origin_y: -20.0
+      origin_x: 0.0
+      origin_y: 0.0
       publish_frequency: 10.0
       resolution: 0.1
       robot_base_frame: d37pxi_tf/base_link
@@ -287,6 +287,7 @@ global_costmap:
       transform_tolerance: 0.25
       update_frequency: 10.0
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      # plugins: ["obstacle_layer", "inflation_layer"]
       
       # Obstacle Layer parameters
       obstacle_layer:
@@ -381,8 +382,8 @@ behavior_server:
     robot_base_frame: d37pxi_tf/base_link
     transform_tolerance: 0.1
     simulate_ahead_time: 2.0
-    max_rotational_vel: 3.0
-    min_rotational_vel: -3.0
+    max_rotational_vel: 0.15
+    min_rotational_vel: -0.15
     rotational_acc_lim: 3.2
     use_sim_time: False
 
@@ -407,8 +408,8 @@ velocity_smoother:
     smoothing_frequency: 10.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [1.0, 0.0, 3.0]
-    min_velocity: [-1.0, 0.0, -3.0]
+    max_velocity: [1.0, 0.0, 1.0]
+    min_velocity: [-1.0, 0.0, -1.0]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: /d37pxi/odom_pose

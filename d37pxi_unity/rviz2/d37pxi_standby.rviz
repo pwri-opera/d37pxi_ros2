@@ -5,13 +5,11 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /TF1/Status1
         - /TF1/Frames1
         - /TF1/Tree1
-        - /Pose1
-        - /Pose1/Topic1
+        - /GlobalPose1/Topic1
       Splitter Ratio: 0.41637009382247925
-    Tree Height: 483
+    Tree Height: 428
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -54,7 +52,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: base_link
+      Reference Frame: d37pxi_tf/base_link
       Value: true
     - Alpha: 0.10000000149011612
       Class: rviz_default_plugins/RobotModel
@@ -69,53 +67,6 @@ Visualization Manager:
         Value: /robot_description
       Enabled: true
       Links:
-        /base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        /blade_angle_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        /blade_angle_piston_left_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /blade_angle_piston_right_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /blade_arm_cylinder_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /blade_arm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /blade_arm_piston_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /blade_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /body_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        /gnss_temp_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
@@ -133,28 +84,16 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
-        base_link:
+        All Enabled: false
+        d37pxi_tf/base_link:
           Value: true
-        blade_angle_link:
+        d37pxi_tf/body_link:
           Value: true
-        blade_angle_piston_left_link:
-          Value: true
-        blade_angle_piston_right_link:
-          Value: true
-        blade_arm_cylinder_link:
-          Value: true
-        blade_arm_link:
-          Value: true
-        blade_arm_piston_link:
-          Value: true
-        blade_link:
-          Value: true
-        body_link:
-          Value: true
-        gnss_temp_link:
+        d37pxi_tf/gnss_temp_link:
           Value: true
         map:
+          Value: true
+        world:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -162,22 +101,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          base_link:
-            body_link:
-              blade_arm_cylinder_link:
-                blade_arm_piston_link:
-                  {}
-              blade_arm_link:
-                blade_angle_link:
-                  blade_link:
-                    {}
-                blade_angle_piston_left_link:
-                  {}
-                blade_angle_piston_right_link:
-                  {}
-              gnss_temp_link:
-                {}
+        world:
+          map:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -188,7 +114,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.30000001192092896
       Head Radius: 0.10000000149011612
-      Name: Pose
+      Name: GlobalPose
       Shaft Length: 1
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -208,13 +134,30 @@ Visualization Manager:
   Name: root
   Tools:
     - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: goal_pose
+    - Class: rviz_default_plugins/SetInitialPose
+      Covariance x: 0.25
+      Covariance y: 0.25
+      Covariance yaw: 0.06853891909122467
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: initialpose
   Transformation:
     Current:
       Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
-      Angle: -0.11999999731779099
+      Angle: -6.230008602142334
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -224,21 +167,21 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 44.08992385864258
-      Target Frame: base_link
+      Scale: 77.70110321044922
+      Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 0.2460225373506546
-      Y: -1.1403964757919312
+      X: -0.10203876346349716
+      Y: -0.14786411821842194
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1109
+  Height: 1016
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000234000003fffc0200000002fb000000100044006900730070006c006100790073010000003b00000264000000c700fffffffb0000000a0056006900650077007301000002a500000195000000a000ffffff000004ec000003ff00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002340000039efc0200000002fb000000100044006900730070006c006100790073010000003d0000022f000000c900fffffffb0000000a00560069006500770073010000027200000169000000a400ffffff000005000000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1830
-  X: 3353
-  Y: 42
+  Width: 1850
+  X: 70
+  Y: 27
