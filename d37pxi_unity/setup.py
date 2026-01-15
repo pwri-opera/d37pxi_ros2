@@ -14,10 +14,6 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'),glob('launch/*.launch')),
         (os.path.join('share', package_name, 'launch'),glob('launch/*launch.py')),
-        (os.path.join('share', package_name, 'rviz2'),glob('rviz2/*.rviz')),
-        (os.path.join('share', package_name, 'config'),glob('config/*.rviz')),
-        (os.path.join('share', package_name, 'd37pxi_untiy'),glob('d37pxi_unity/*.py')),
- 
     ],
     install_requires=['setuptools'],
     zip_safe=True,

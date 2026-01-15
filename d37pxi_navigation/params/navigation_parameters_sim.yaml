@@ -5,7 +5,7 @@ amcl:
     alpha3: 0.2
     alpha4: 0.2
     alpha5: 0.2
-    base_frame_id: "d37pxi_tf/base_link"
+    base_frame_id: "d37pxi_24/base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
     beam_skip_threshold: 0.3
@@ -19,7 +19,7 @@ amcl:
     max_beams: 60
     max_particles: 2000
     min_particles: 500
-    odom_frame_id: "d37pxi_tf/odom"
+    odom_frame_id: "d37pxi_24/odom"
     pf_err: 0.05
     pf_z: 0.99
     recovery_alpha_fast: 0.0
@@ -37,21 +37,19 @@ amcl:
     z_rand: 0.5
     z_short: 0.05
     scan_topic: scan
-    use_sim_time: False
+    use_sim_time: True
 
 component_container_isolated:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     autostart: True
 
 bt_navigator:
   ros__parameters:
     global_frame: map
-    use_sim_time: False
-    robot_base_frame: d37pxi_tf/base_link
-    odom_topic: /d37pxi/odom_pose
-    # default_nav_through_poses_bt_xml: "/home/common/SIP_PROJECTS/M2/SIMIZU_PROJECT/ros2_ws/install/d37pxi_navigation/share/d37pxi_navigation/config/d37pxi_navigate_through_poses_w_replanning_and_recovery.xml"
-    default_nav_through_poses_bt_xml: ""
+    use_sim_time: True
+    robot_base_frame: d37pxi_24/base_link
+    odom_topic: /d37pxi_24/odom_pose
     bt_loop_duration: 10
     default_server_timeout: 20
     wait_for_service_timeout: 1000
@@ -62,8 +60,8 @@ bt_navigator:
     navigate_through_poses:
       plugin: "nav2_bt_navigator::NavigateThroughPosesNavigator"
     # 'default_nav_through_poses_bt_xml' and 'default_nav_to_pose_bt_xml' are use defaults:
-    # nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
-    # nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
+    # default_nav_to_pose_bt_xml: nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
+    # default_nav_through_poses_bt_xml: nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
     # They can be set here or via a RewrittenYaml remap from a parent launch file to Nav2.
     plugin_lib_names:
       - nav2_compute_path_to_pose_action_bt_node
@@ -119,15 +117,15 @@ bt_navigator:
 
 bt_navigator_navigate_through_poses_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 bt_navigator_navigate_to_pose_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 controller_server:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     controller_frequency: 10.0
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.5
@@ -136,7 +134,7 @@ controller_server:
     progress_checker_plugins: ["progress_checker"]
     goal_checker_plugins: ["general_goal_checker"] # "precise_goal_checker"
     controller_plugins: ["FollowPath"]
-    odom_topic: "/d37pxi/odom_pose"
+    odom_topic: "/d37pxi_24/odom_pose"
 
     # Progress checker parameters
     progress_checker:
@@ -202,15 +200,15 @@ local_costmap:
     ros__parameters:
       #Costmap2D paraneters
       always_send_full_costmap: True
-      use_sim_time: False
+      use_sim_time: True
       footprint_padding: 0.5
-      global_frame: d37pxi_tf/odom
+      global_frame: d37pxi_24/odom
       height: 20
       width: 20
       observation_sources: scan
       publish_frequency: 10.0
       resolution: 0.05
-      robot_base_frame: d37pxi_tf/base_link
+      robot_base_frame: d37pxi_24/base_link
       rolling_window: true
       transform_tolerance: 0.25
       update_frequency: 10.0
@@ -272,7 +270,7 @@ global_costmap:
     ros__parameters:
       #Costmap2D paraneters
       always_send_full_costmap: True
-      use_sim_time: False
+      use_sim_time: True
       footprint_padding: 0.5
       global_frame: map
       height: 100
@@ -282,7 +280,7 @@ global_costmap:
       origin_y: -20.0
       publish_frequency: 10.0
       resolution: 0.1
-      robot_base_frame: d37pxi_tf/base_link
+      robot_base_frame: d37pxi_24/base_link
       rolling_window: false
       transform_tolerance: 0.25
       update_frequency: 10.0
@@ -324,14 +322,14 @@ global_costmap:
 
 map_server:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     # Overridden in launch by the "map" launch configuration or provided default value.
     # To use in yaml, remove the default "map" value in the tb3_simulation_launch.py file & provide full path to map below.
     yaml_filename: ""
 
 map_saver:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     save_map_timeout: 5.0
     free_thresh_default: 0.25
     occupied_thresh_default: 0.65
@@ -340,7 +338,7 @@ map_saver:
 planner_server:
   ros__parameters:
     expected_planner_frequency: 10.0
-    use_sim_time: False
+    use_sim_time: True
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "nav2_navfn_planner/NavfnPlanner"
@@ -350,7 +348,7 @@ planner_server:
 
 smoother_server:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     smoother_plugins: ["simple_smoother"]
     simple_smoother:
       plugin: "nav2_smoother::SimpleSmoother"
@@ -376,23 +374,23 @@ behavior_server:
       plugin: "nav2_behaviors/Wait"
     assisted_teleop:
       plugin: "nav2_behaviors/AssistedTeleop"
-    local_frame: d37pxi_tf/odom
+    local_frame: d37pxi_24/odom
     global_frame: map
-    robot_base_frame: d37pxi_tf/base_link
+    robot_base_frame: d37pxi_24/base_link
     transform_tolerance: 0.1
     simulate_ahead_time: 2.0
     max_rotational_vel: 3.0
     min_rotational_vel: -3.0
     rotational_acc_lim: 3.2
-    use_sim_time: False
+    use_sim_time: True
 
 robot_state_publisher:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
 
 waypoint_follower:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
     loop_rate: 10
     stop_on_failure: false
     action_server_result_timeout: 900.0
@@ -411,9 +409,9 @@ velocity_smoother:
     min_velocity: [-1.0, 0.0, -3.0]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
-    odom_topic: /d37pxi/odom_pose
+    odom_topic: /d37pxi_24/odom_pose
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
-    use_sim_time: False
+    use_sim_time: True
 

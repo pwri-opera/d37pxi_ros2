@@ -5,7 +5,7 @@ amcl:
     alpha3: 0.2
     alpha4: 0.2
     alpha5: 0.2
-    base_frame_id: "d37pxi_tf/base_link"
+    base_frame_id: "d37pxi/base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
     beam_skip_threshold: 0.3
@@ -19,7 +19,7 @@ amcl:
     max_beams: 60
     max_particles: 2000
     min_particles: 500
-    odom_frame_id: "d37pxi_tf/odom"
+    odom_frame_id: "d37pxi/odom"
     pf_err: 0.05
     pf_z: 0.99
     recovery_alpha_fast: 0.0
@@ -43,7 +43,7 @@ bt_navigator:
   ros__parameters:
     use_sim_time: False
     global_frame: map
-    robot_base_frame: d37pxi_tf/base_link
+    robot_base_frame: d37pxi/base_link
     odom_topic: /d37pxi/odom_pose
     bt_loop_duration: 10
     default_server_timeout: 20
@@ -186,13 +186,13 @@ local_costmap:
       always_send_full_costmap: True
       use_sim_time: False
       footprint_padding: 0.5
-      global_frame: d37pxi_tf/odom
+      global_frame: d37pxi/odom
       height: 20
       width: 20
       observation_sources: scan
       publish_frequency: 10.0
       resolution: 0.05
-      robot_base_frame: d37pxi_tf/base_link
+      robot_base_frame: d37pxi/base_link
       rolling_window: true
       transform_tolerance: 0.5
       update_frequency: 10.0
@@ -264,7 +264,7 @@ global_costmap:
       origin_y: -20.0
       publish_frequency: 10.0
       resolution: 0.1
-      robot_base_frame: d37pxi_tf/base_link
+      robot_base_frame: d37pxi/base_link
       rolling_window: false
       transform_tolerance: 0.5
       update_frequency: 10.0
@@ -358,9 +358,9 @@ behavior_server:
       plugin: "nav2_behaviors/Wait"
     assisted_teleop:
       plugin: "nav2_behaviors/AssistedTeleop"
-    local_frame: d37pxi_tf/odom
+    local_frame: d37pxi/odom
     global_frame: map
-    robot_base_frame: d37pxi_tf/base_link
+    robot_base_frame: d37pxi/base_link
     transform_tolerance: 0.1
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0

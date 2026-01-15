@@ -7,9 +7,9 @@
 
 <!-- <xacro:property name="robot_name" value="d37pxi24" /> -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="d37pxi">
-  <xacro:property name="tf_prefix" value=""/>
 
-
+  <xacro:arg name="tf_prefix" default=""/>
+  <xacro:property name="tf_prefix" value="$(arg tf_prefix)"/>
 
   <!-- Base Link -->
   <link name="${tf_prefix}/base_link"/>

@@ -6,8 +6,8 @@ from nav_msgs.msg import Odometry
 class FrameIdMapper(Node):
     def __init__(self):
         super().__init__('frame_id_mapper')
-        self.declare_parameter('input_topic', "/d37pxi_24/odom_pose")
-        self.declare_parameter('output_topic', "/d37pxi_24/fixed_odom_pose")
+        self.declare_parameter('input_topic', "odom_pose")
+        self.declare_parameter('output_topic', "fixed_odom_pose")
 
         self.input_topic = self.get_parameter('input_topic').get_parameter_value().string_value
         self.output_topic= self.get_parameter('output_topic').get_parameter_value().string_value

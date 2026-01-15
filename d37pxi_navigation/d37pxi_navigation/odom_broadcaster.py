@@ -12,9 +12,9 @@ class OdomBroadcaster(Node):
     def __init__(self):
         super().__init__('odom_tf_broadcaster')
         self.br = TransformBroadcaster(self)
-        self.declare_parameter('odom_topic', "/d37pxi/odom_pose")
-        self.declare_parameter('odom_frame', "d37pxi_tf/odom")
-        self.declare_parameter('base_link_frame', "d37pxi_tf/base_link")
+        self.declare_parameter('odom_topic', "odom")
+        self.declare_parameter('odom_frame', "odom")
+        self.declare_parameter('base_link_frame', "base_link")
         self.odom_topic = self.get_parameter('odom_topic').get_parameter_value().string_value
         self.odom_frame = self.get_parameter('odom_frame').get_parameter_value().string_value
         self.base_link_frame = self.get_parameter('base_link_frame').get_parameter_value().string_value
