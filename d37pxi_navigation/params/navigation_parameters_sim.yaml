@@ -152,62 +152,45 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 1.0
-      yaw_goal_tolerance: 0.1
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.05
 
     FollowPath:
       plugin: "nav2_rotation_shim_controller::RotationShimController"
-      primary_controller: "dwb_core::DWBLocalPlanner"
+      primary_controller: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
 
-      # Rotation Shim Controller parameters
-      angular_dist_threshold: 0.785
-      forward_sampling_distance: 1.0
+      # Rotation Shim
+      angular_dist_threshold: 0.5
+      forward_sampling_distance: 0.5
       rotate_to_heading_angular_vel: 0.15
       max_angular_accel: 3.1
       simulate_ahead_time: 1.0
       rotate_to_goal_heading: true
+      rotate_to_heading_once: true
 
-      # DWB parameters
-      # plugin: "dwb_core::DWBLocalPlanner"
-      debug_trajectory_details: false
-      min_vel_x: -0.5
-      min_vel_y: 0.0
-      max_vel_x: 1.0
-      max_vel_y: 0.0
-      max_vel_theta: 0.15
-      min_speed_xy: -0.5
-      max_speed_xy: 1.0
-      min_speed_theta: -0.15
-      max_speed_theta: 0.15
-      acc_lim_x: 3.0 
-      acc_lim_y: 0.0
-      acc_lim_theta: 3.1
-      decel_lim_x: -2.5
-      decel_lim_y: 0.0
-      decel_lim_theta: -3.2
-      vx_samples: 13
-      vy_samples: 1
-      vtheta_samples: 13
-      # sim_time: 30.0
-      sim_time: 1.7
-      linear_granularity: 0.05
-      angular_granularity: 0.025
-      transform_tolerance: 0.2
-      xy_goal_tolerance: 1.0
-      trans_stopped_velocity: 0.25
-      short_circuit_trajectory_evaluation: True
-      stateful: True
-      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.02
-      PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
-      GoalAlign.scale: 24.0
-      GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
-      RotateToGoal.scale: 32.0
-      RotateToGoal.slowing_factor: 10.0
-      RotateToGoal.lookahead_time: -1.0
+      # RPP
+      max_linear_vel: 0.5
+      min_linear_vel: 0.0          # 後退不要なら 0.0
+      max_angular_vel: 0.15
+      min_angular_vel: -0.15
+
+      use_velocity_scaled_lookahead_dist: true
+      min_lookahead_dist: 0.8
+      max_lookahead_dist: 1.6
+      lookahead_time: 1.5
+      # lookahead_dist はこの場合ほぼ見なくてよい
+
+      min_approach_linear_velocity: 0.05
+      approach_velocity_scaling_dist: 1.0
+
+      use_regulated_linear_velocity_scaling: true
+      regulated_linear_scaling_min_radius: 2.0
+      regulated_linear_scaling_min_speed: 0.1
+
+      use_cost_regulated_linear_velocity_scaling: false
+      use_rotate_to_heading: false
+      allow_reversing: false       # 後退 path を本当に使うときだけ true
+      stateful: true
 
 local_costmap:
   local_costmap:
