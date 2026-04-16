@@ -54,6 +54,8 @@ def rewrite_nav_params(context, **kwargs):
         'bt_navigator.ros__parameters.robot_base_frame': tf_prefix_val+'/base_link',
         'bt_navigator.ros__parameters.odom_topic': '/'+common_prefix_val+'/odom_pose',
         'bt_navigator.ros__parameters.default_nav_through_poses_bt_xml': os.path.join(d37pxi_navigation_dir, 'params', 'd37pxi_navigate_through_poses_w_replanning_and_recovery.xml'),
+        'bt_navigator.ros__parameters.default_nav_to_pose_bt_xml': os.path.join(d37pxi_navigation_dir, 'params', 'd37pxi_navigate_to_pose.xml'),
+
 
         # controller_server
         'controller_server.ros__parameters.odom_topic': '/'+common_prefix_val+'/odom_pose',

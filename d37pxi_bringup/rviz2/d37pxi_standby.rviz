@@ -10,7 +10,6 @@ Panels:
         - /TF1/Frames1
         - /TF1/Tree1
         - /GlobalPose1/Topic1
-        - /Path1
         - /Path2
       Splitter Ratio: 0.41637009382247925
     Tree Height: 428
@@ -265,7 +264,7 @@ Visualization Manager:
       Buffer Length: 1
       Class: rviz_default_plugins/Path
       Color: 26; 95; 180
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.10000000149011612
       Head Length: 0.10000000149011612
       Length: 0.20000000298023224
@@ -288,7 +287,7 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /d37pxi/local_plan
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz_default_plugins/Path
@@ -304,7 +303,7 @@ Visualization Manager:
         X: 0
         Y: 0
         Z: 0
-      Pose Color: 255; 85; 255
+      Pose Color: 38; 162; 105
       Pose Style: None
       Radius: 0.029999999329447746
       Shaft Diameter: 0.05000000074505806
@@ -316,6 +315,21 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /d37pxi/plan
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/PointStamped
+      Color: 204; 41; 204
+      Enabled: true
+      History Length: 1
+      Name: PointStamped
+      Radius: 0.20000000298023224
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/lookahead_point
       Value: true
   Enabled: true
   Global Options:
@@ -348,7 +362,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: -0.004999996162950993
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -358,11 +372,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 65.83200073242188
-      Target Frame: <Fixed Frame>
+      Scale: 113.08723449707031
+      Target Frame: base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 21492.162109375
-      Y: 14017.916015625
+      X: 21494.93359375
+      Y: 14016.4951171875
     Saved: ~
 Window Geometry:
   Displays:
