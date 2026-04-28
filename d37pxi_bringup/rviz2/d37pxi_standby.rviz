@@ -157,12 +157,13 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
+        map:
+          d37pxi_tf/odom:
+            d37pxi_tf/base_link:
+              d37pxi_tf/body_link:
+                {}
         world:
-          map:
-            d37pxi_tf/odom:
-              d37pxi_tf/base_link:
-                d37pxi_tf/body_link:
-                  {}
+          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
