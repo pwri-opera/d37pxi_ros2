@@ -119,10 +119,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        d37pxi_tf/gnss_temp_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Mass Properties:
         Inertia: false
         Mass: false
@@ -139,8 +135,6 @@ Visualization Manager:
         d37pxi_tf/base_link:
           Value: true
         d37pxi_tf/body_link:
-          Value: true
-        d37pxi_tf/gnss_temp_link:
           Value: true
         d37pxi_tf/odom:
           Value: true
@@ -159,8 +153,7 @@ Visualization Manager:
             d37pxi_tf/odom:
               d37pxi_tf/base_link:
                 d37pxi_tf/body_link:
-                  d37pxi_tf/gnss_temp_link:
-                    {}
+                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -345,7 +338,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -3.2099993228912354
+      Angle: -3.609998941421509
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -355,11 +348,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 149.78062438964844
+      Scale: 106.0094985961914
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 0.21160121262073517
-      Y: 0.3344096839427948
+      X: 4.217221260070801
+      Y: -1.8825769424438477
     Saved: ~
 Window Geometry:
   Displays:

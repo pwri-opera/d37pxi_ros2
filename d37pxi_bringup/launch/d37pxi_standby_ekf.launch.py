@@ -153,7 +153,8 @@ def generate_nodes(context, *args, **kwargs):
             output="screen",
             parameters=[{'odom_topic': '/'+common_prefix_val+'/odom_pose'},
                         {'odom_frame': tf_prefix_val+ "/odom"},
-                        {'base_link_frame': tf_prefix_val + "/base_link"}]
+                        {'base_link_frame': tf_prefix_val + "/base_link"},
+                        {'use_sim_time': use_sim_time}]
         ),
         Node(
             package='d37pxi_navigation',
@@ -168,15 +169,16 @@ def generate_nodes(context, *args, **kwargs):
                             'use_sim_time': use_sim_time}]
         ),
         # 擬似的なオドメトリをGNSS測位データより取得
-        Node(
-            package="d37pxi_navigation",
-            executable="odom_pose",
-            namespace=common_prefix_val,
-            name="odom_pose",
-            parameters=[{'global_pose': '/'+common_prefix_val+"/tracking/ground_truth",
-                         'odom_pose': '/'+common_prefix_val+"/odom_pose"}],
-            output="screen",
-        ),            
+        # Node(
+        #     package="d37pxi_navigation",
+        #     executable="odom_pose",
+        #     namespace=common_prefix_val,
+        #     name="odom_pose",
+        #     parameters=[{'global_pose': '/'+common_prefix_val+"/tracking/ground_truth",
+        #                  'odom_pose': '/'+common_prefix_val+"/odom_pose"},
+        #                 {'use_sim_time': use_sim_time}],
+        #     output="screen",
+        # ),            
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
