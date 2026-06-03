@@ -182,17 +182,20 @@ controller_server:
 
       use_dynamic_window: true
 
-      use_velocity_scaled_lookahead_dist: true
-      min_lookahead_dist: 0.2
-      max_lookahead_dist: 5.0
-      lookahead_time: 2.0
+      use_velocity_scaled_lookahead_dist: false
+      min_lookahead_dist: 2.0  # use_velocity_scaled_lookahead_dist: true 時の有効
+      max_lookahead_dist: 5.0  # use_velocity_scaled_lookahead_dist: true 時の有効
+      lookahead_time: 3.0      # use_velocity_scaled_lookahead_dist: true 時の有効
+
+      lookahead_dist: 2.0      # use_velocity_scaled_lookahead_dist: false 時の有効
       
       min_approach_linear_velocity: 0.02
       approach_velocity_scaling_dist: 1.5
 
       use_regulated_linear_velocity_scaling: true
-      regulated_linear_scaling_min_radius: 4.0
+      regulated_linear_scaling_min_radius: 1.5
       regulated_linear_scaling_min_speed: 0.2
+#     interpolate_curvature_after_goal: true
 
       use_cost_regulated_linear_velocity_scaling: false
       use_rotate_to_heading: false
@@ -472,8 +475,8 @@ velocity_smoother:
     smoothing_frequency: 10.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [1.0, 0.0, 0.2]
-    min_velocity: [-1.0, 0.0, -0.2]
+    max_velocity: [1.0, 0.0, 0.5]
+    min_velocity: [-1.0, 0.0, -0.5]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: /d37pxi/odom_pose

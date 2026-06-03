@@ -6,14 +6,14 @@ Panels:
       Expanded:
         - /Global Options1
         - /RobotModel1
-        - /TF1
         - /TF1/Frames1
         - /TF1/Tree1
         - /GlobalPose1/Topic1
-        - /Path1
         - /Path2
+        - /LocalPlan1
+        - /LocalPlanArc1
       Splitter Ratio: 0.41637009382247925
-    Tree Height: 428
+    Tree Height: 422
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -284,8 +284,8 @@ Visualization Manager:
       Class: rviz_default_plugins/Path
       Color: 25; 255; 0
       Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
+      Head Diameter: 0.07000000029802322
+      Head Length: 0.10000000149011612
       Length: 0.30000001192092896
       Line Style: Lines
       Line Width: 0.029999999329447746
@@ -295,6 +295,49 @@ Visualization Manager:
         Y: 0
         Z: 0
       Pose Color: 255; 85; 255
+      Pose Style: Arrows
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.02500000037252903
+      Shaft Length: 0.05000000074505806
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/plan
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/PointStamped
+      Color: 204; 41; 204
+      Enabled: true
+      History Length: 1
+      Name: PointStamped
+      Radius: 0.20000000298023224
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/lookahead_point
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 255; 120; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: LocalPlan
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 230; 97; 0
       Pose Style: None
       Radius: 0.029999999329447746
       Shaft Diameter: 0.10000000149011612
@@ -305,7 +348,35 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /d37pxi/plan
+        Value: /d37pxi/local_plan
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 28; 113; 216
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: LocalPlanArc
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 28; 113; 216
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/lookahead_collision_arc
       Value: true
   Enabled: true
   Global Options:
@@ -338,7 +409,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -3.609998941421509
+      Angle: -1.5949980020523071
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -348,21 +419,21 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 106.0094985961914
+      Scale: 122.00797271728516
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 4.217221260070801
-      Y: -1.8825769424438477
+      X: -1.5251911878585815
+      Y: -0.8203020095825195
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 1006
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002340000039efc0200000002fb000000100044006900730070006c006100790073010000003d0000022f000000c900fffffffb0000000a00560069006500770073010000027200000169000000a400ffffff000005000000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000023400000394fc0200000002fb000000100044006900730070006c006100790073010000003d00000229000000c900fffffffb0000000a00560069006500770073010000026c00000165000000a400ffffff000005000000039400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1850
-  X: 70
-  Y: 27
+  X: 1932
+  Y: 255
