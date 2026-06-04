@@ -40,14 +40,21 @@
   </link>
 
   <!-- GNSS (Hemisphere V500) {{{ -->
-  <joint name="gnss_temp_joint" type="fixed">
-    <!-- 暫定値 -->
-    <!-- <origin xyz="0.335772 -0.285 2.945"/>     -->
-    <origin xyz="0.335772 -0.285 0"/>  <!-- without height -->
+  <!-- <joint name="gnss_temp_joint" type="fixed">
+    <origin xyz="0.185772 -0.285 0"/> 
     <parent link="${tf_prefix}/body_link"/>
     <child link="${tf_prefix}/gnss_temp_link"/>
   </joint>
-  <link name="${tf_prefix}/gnss_temp_link"/>
+  <link name="${tf_prefix}/gnss_temp_link"/> -->
+
+
+  <!-- GNSS (Septentrio GNSS) {{{ -->
+  <!-- <joint name="gnss_temp_joint" type="fixed">
+    <origin xyz="0.185772 -0.285 0"/> 
+    <parent link="${tf_prefix}/body_link"/>
+    <child link="${tf_prefix}/gnss_temp_link"/>
+  </joint>
+  <link name="${tf_prefix}/gnss_temp_link"/> -->
 
 
   <!-- }}} Body ends here -->

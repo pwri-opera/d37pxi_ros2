@@ -17,7 +17,7 @@ class PoseToOdomNode(Node):
 
         odom_header_frame_param = self.declare_parameter('odom_header_frame', 'world')
         odom_child_frame_param = self.declare_parameter('odom_child_frame', '/d37pxi/gnss/base_link')
-        poseStamped_topic_name_param = self.declare_parameter('poseStamped_topic_name', '/d37pxi/global_pose')
+        poseStamped_topic_name_param = self.declare_parameter('poseStamped_topic_name', '/d37pxi/gnss_compass/global_pose')
         odom_topic_name_param = self.declare_parameter('odom_topic_name', '/d37pxi/gnss_odom')
 
         self.odom_header_frame = odom_header_frame_param.get_parameter_value().string_value

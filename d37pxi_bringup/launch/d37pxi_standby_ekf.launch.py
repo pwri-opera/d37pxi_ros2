@@ -13,7 +13,7 @@ import tempfile
 
 robot_name = "d37pxi"
 use_autostart = True
-use_sim_time = True
+use_sim_time = False
 use_respawn = True
 use_namespace = True
 common_prefix_val = ""
@@ -36,7 +36,7 @@ def rewrite_nav_params(context, **kwargs):
     global configured_params
     d37pxi_navigation_dir = get_package_share_directory('d37pxi_navigation')
     navigation_parameters_sim_yaml_file = os.path.join(d37pxi_navigation_dir, 'params', 'navigation_parameters_sim.yaml')
-    map_yaml_file = LaunchConfiguration('map', default=os.path.join(d37pxi_navigation_dir, 'map', 'map_sim.yaml'))
+    map_yaml_file = LaunchConfiguration('map', default=os.path.join(d37pxi_navigation_dir, 'map', 'map.yaml'))
 
     param_substitutions_nav = {
         'use_sim_time': str(use_sim_time),
@@ -55,6 +55,7 @@ def rewrite_nav_params(context, **kwargs):
         'bt_navigator.ros__parameters.odom_topic': '/'+common_prefix_val+'/odom_pose',
         'bt_navigator.ros__parameters.default_nav_through_poses_bt_xml': os.path.join(d37pxi_navigation_dir, 'params', 'd37pxi_navigate_through_poses_w_replanning_and_recovery.xml'),
         'bt_navigator.ros__parameters.default_nav_to_pose_bt_xml': os.path.join(d37pxi_navigation_dir, 'params', 'd37pxi_navigate_to_pose.xml'),
+
 
         # controller_server
         'controller_server.ros__parameters.odom_topic': '/'+common_prefix_val+'/odom_pose',
@@ -113,8 +114,8 @@ def process_xacro(context, *args, **kwargs):
 
 def generate_nodes(context, *args, **kwargs):
     opaque_function_complete_event.wait()
-    d37pxi_unity_dir = get_package_share_directory("d37pxi_unity")
-    d37pxi_standby_rviz_file = os.path.join(d37pxi_unity_dir, "rviz2", "d37pxi_standby.rviz")
+    d37pxi_bringup_dir = get_package_share_directory("d37pxi_bringup")
+    d37pxi_standby_rviz_file = os.path.join(d37pxi_bringup_dir, "rviz2", "d37pxi_standby.rviz")
 
     lifecycle_nodes_localization = [
         'map_server'
@@ -152,19 +153,31 @@ def generate_nodes(context, *args, **kwargs):
             output="screen",
             parameters=[{'odom_topic': '/'+common_prefix_val+'/odom_pose'},
                         {'odom_frame': tf_prefix_val+ "/odom"},
-                        {'base_link_frame': tf_prefix_val + "/base_link"}]
+                        {'base_link_frame': tf_prefix_val + "/base_link"},
+                        {'use_sim_time': use_sim_time}]
         ),
+        Node(
+            package='d37pxi_navigation',
+            executable='poseStamped2Odometry',
+            namespace=common_prefix_val,
+            name='poseStamped2ground_truth_odom',
+            output="screen",
+            parameters=[{'odom_header_frame': "world",
+                            'odom_child_frame': tf_prefix_val+"/base_link",
+                            'poseStamped_topic_name': '/'+common_prefix_val+"/gnss_compass/global_pose",
+                            'odom_topic_name': '/'+common_prefix_val+"/global_pose",
+                            'use_sim_time': use_sim_time}]
+        ),
+        # 擬似的なオドメトリをGNSS測位データより取得
         # Node(
-        #     package='d37pxi_navigation',
-        #     executable='poseStamped2Odometry',
+        #     package="d37pxi_navigation",
+        #     executable="odom_pose",
         #     namespace=common_prefix_val,
-        #     name='poseStamped2ground_truth_odom',
+        #     name="odom_pose",
+        #     parameters=[{'global_pose': '/'+common_prefix_val+"/tracking/ground_truth",
+        #                  'odom_pose': '/'+common_prefix_val+"/odom_pose"},
+        #                 {'use_sim_time': use_sim_time}],
         #     output="screen",
-        #     parameters=[{'odom_header_frame': "world",
-        #                     'odom_child_frame': tf_prefix_val+"/base_link",
-        #                     'poseStamped_topic_name': '/'+common_prefix_val+"/global_pose",
-        #                     'odom_topic_name': '/'+common_prefix_val+"/tracking/ground_truth",
-        #                     'use_sim_time': use_sim_time}]
         # ),            
         Node(
             package='robot_state_publisher',
@@ -186,6 +199,7 @@ def generate_nodes(context, *args, **kwargs):
         #########################
         # Localization packages #
         #########################
+
         Node(
             package='nav2_map_server',
             executable='map_server',

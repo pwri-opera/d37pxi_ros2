@@ -2,10 +2,10 @@ image: map.pgm
 mode: trinary
 # resolution: 10
 # origin: [-25000.0, -25000.0, 0]
-# resolution: 0.05
-# origin: [-125, -125, 0]
 resolution: 0.05
-origin: [21331, 13952, 0]
+origin: [-125, -125, 0]
+# resolution: 0.05
+# origin: [21331, 13952, 0]
 negate: 0
 occupied_thresh: 0.65
 free_thresh: 0.2
