@@ -35,7 +35,7 @@ def wait_for_opaque_function(context):
 def rewrite_nav_params(context, **kwargs):
     global configured_params
     d37pxi_navigation_dir = get_package_share_directory('d37pxi_navigation')
-    navigation_parameters_sim_yaml_file = os.path.join(d37pxi_navigation_dir, 'params', 'navigation_parameters_sim.yaml')
+    navigation_parameters_sim_yaml_file = os.path.join(d37pxi_navigation_dir, 'params', 'navigation_mppi.yaml')
     map_yaml_file = LaunchConfiguration('map', default=os.path.join(d37pxi_navigation_dir, 'map', 'map_sim.yaml'))
 
     param_substitutions_nav = {
