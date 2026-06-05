@@ -9,9 +9,10 @@ Panels:
         - /TF1/Frames1
         - /TF1/Tree1
         - /GlobalPose1/Topic1
-        - /Path2
         - /LocalPlan1
         - /LocalPlanArc1
+        - /MarkerArray1
+        - /Path3
       Splitter Ratio: 0.41637009382247925
     Tree Height: 422
   - Class: rviz_common/Views
@@ -378,6 +379,46 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /d37pxi/lookahead_collision_arc
       Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: false
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /trajectories
+      Value: false
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/transformed_global_plan
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 222; 221; 218
@@ -419,11 +460,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 122.00797271728516
+      Scale: 118.89934539794922
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -1.5251911878585815
-      Y: -0.8203020095825195
+      X: -0.5991075038909912
+      Y: -1.1063554286956787
     Saved: ~
 Window Geometry:
   Displays:
@@ -435,5 +476,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1850
-  X: 1932
+  X: 1590
   Y: 255
