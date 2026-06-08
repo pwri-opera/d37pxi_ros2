@@ -13,6 +13,7 @@ Panels:
         - /LocalPlanArc1
         - /MarkerArray1
         - /Path3
+        - /Path4
       Splitter Ratio: 0.41637009382247925
     Tree Height: 422
   - Class: rviz_common/Views
@@ -389,13 +390,13 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /trajectories
+        Value: /d37pxi/controller_server/candidate_trajectories
       Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz_default_plugins/Path
       Color: 25; 255; 0
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
@@ -417,7 +418,35 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /d37pxi/transformed_global_plan
+        Value: /d37pxi/controller_server/transformed_global_plan
+      Value: false
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Billboards
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/controller_server/optimal_path
       Value: true
   Enabled: true
   Global Options:
@@ -460,11 +489,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 118.89934539794922
+      Scale: 80.00833129882812
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -0.5991075038909912
-      Y: -1.1063554286956787
+      X: 2.542604684829712
+      Y: -3.4234869480133057
     Saved: ~
 Window Geometry:
   Displays:

@@ -48,7 +48,7 @@ def rewrite_nav_params(context, **kwargs):
         'amcl.ros__parameters.odom_frame_id': tf_prefix_val+'/odom',
 
         #component_container_isolated
-        'component_container\isolated.ros__parameters.autostart': str(use_autostart),
+        # 'component_container\isolated.ros__parameters.autostart': str(use_autostart),
         
         # bt_navigator
         'bt_navigator.ros__parameters.robot_base_frame': tf_prefix_val+'/base_link',
