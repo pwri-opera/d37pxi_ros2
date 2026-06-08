@@ -9,8 +9,6 @@ Panels:
         - /TF1/Frames1
         - /TF1/Tree1
         - /GlobalPose1/Topic1
-        - /LocalPlan1
-        - /LocalPlanArc1
         - /MarkerArray1
         - /Path3
         - /Path4
@@ -479,7 +477,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -1.5949980020523071
+      Angle: -8.010001182556152
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -489,11 +487,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 80.00833129882812
+      Scale: 3.914888381958008
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: 2.542604684829712
-      Y: -3.4234869480133057
+      X: -2.1201138496398926
+      Y: 0.4156028926372528
     Saved: ~
 Window Geometry:
   Displays:
@@ -505,5 +503,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1850
-  X: 1590
-  Y: 255
+  X: 1312
+  Y: 60

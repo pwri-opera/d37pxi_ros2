@@ -106,7 +106,7 @@ controller_server:
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.5
     min_theta_velocity_threshold: 0.001
-    failure_tolerance: 3.0
+    failure_tolerance: -1.0
     progress_checker_plugins: ["progress_checker"]
     goal_checker_plugins: ["general_goal_checker"] # "precise_goal_checker"
     controller_plugins: ["FollowPath"]
@@ -136,21 +136,21 @@ controller_server:
       time_steps: 56             # 28 候補軌道の時間ステップ数（データ点数）
       model_dt: 0.05            # 各時間ステップのdt（時間間隔）の長さ（秒単位）
       batch_size: 1000         # 特定の反復において、現在の最適制御シーケンスからランダムにサンプリングされた候補軌道の数。50 Hzでは1000、30 Hzでは2000が良好な結果をもたらす模様。
-      ax_max: 15.0  # 3.0
-      ax_min: -15.0  # -3.0
+      ax_max: 6.0  # 3.0
+      ax_min: -6.0  # -3.0
       ay_max: 3.0
       ay_min: -3.0
-      az_max: 17.5  # 3.5
-      vx_std: 1.0  # 0.2 
+      az_max: 6.0  # 3.5
+      vx_std: 0.2  # 0.2 
       vy_std: 0.2
-      wz_std: 2.0 # 0.4
+      wz_std: 0.4 # 0.4
       vx_max: 1.0  # 0.5
       vx_min: -1.0
       vy_max: 0.5
-      wz_max: 1.9
+      wz_max: 0.5 # 1.9
       iteration_count: 1        # MPPIアルゴリズムの反復回数。1のままにしておくことを推奨
       prune_distance: 3.0    # 1.7
-      transform_tolerance: 0.1  
+      transform_tolerance: 0.5
       temperature: 0.3          # MPPIアルゴリズムの温度パラメータ。値が小さいほど、最適な軌道に対する重みの差が大きくなる。
       gamma: 0.015              # MPPIアルゴリズムの割引率。将来のコストが現在のコストに与える影響を制御する。値が小さいほど、アルゴリズムはより短期的なコストに焦点を当てる。
       motion_model: "DiffDrive" # 軌道計画に使用する動モデルプラグイン。
@@ -241,7 +241,7 @@ local_costmap:
       resolution: 0.5
       robot_base_frame: d37pxi_tf/base_link
       rolling_window: true
-      transform_tolerance: 0.25
+      transform_tolerance: 0.5
       update_frequency: 10.0
       plugins: ["static_layer", "inflation_layer"]
       
@@ -313,7 +313,7 @@ global_costmap:
       resolution: 0.1
       robot_base_frame: d37pxi_tf/base_link
       rolling_window: false
-      transform_tolerance: 0.25
+      transform_tolerance: 0.5
       update_frequency: 0.2
       plugins: ["static_layer", "inflation_layer"]
       # plugins: ["obstacle_layer", "inflation_layer"]
@@ -468,7 +468,7 @@ behavior_server:
     local_frame: d37pxi_tf/odom
     global_frame: map
     robot_base_frame: d37pxi_tf/base_link
-    transform_tolerance: 0.1
+    transform_tolerance: 0.5
     simulate_ahead_time: 2.0
     max_rotational_vel: 0.5
     min_rotational_vel: -0.5
@@ -494,13 +494,13 @@ waypoint_follower:
 
 velocity_smoother:
   ros__parameters:
-    smoothing_frequency: 10.0
+    smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
     max_velocity: [1.0, 0.0, 0.5]
     min_velocity: [-1.0, 0.0, -0.5]
-    max_accel: [2.5, 0.0, 3.2]
-    max_decel: [-2.5, 0.0, -3.2]
+    max_accel: [6.0, 0.0, 6.0]
+    max_decel: [-6.0, 0.0, -6.0]
     odom_topic: /d37pxi/odom_pose
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
