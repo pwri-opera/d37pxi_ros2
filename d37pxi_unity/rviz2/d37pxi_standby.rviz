@@ -427,7 +427,7 @@ Visualization Manager:
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
       Line Style: Billboards
-      Line Width: 0.029999999329447746
+      Line Width: 0.10000000149011612
       Name: Path
       Offset:
         X: 0
@@ -477,7 +477,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -8.010001182556152
+      Angle: -7.855002403259277
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -487,11 +487,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 3.914888381958008
+      Scale: 58.54197311401367
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -2.1201138496398926
-      Y: 0.4156028926372528
+      X: 4.589051246643066
+      Y: -7.1224284172058105
     Saved: ~
 Window Geometry:
   Displays:
