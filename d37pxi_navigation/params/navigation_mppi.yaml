@@ -136,14 +136,14 @@ controller_server:
       time_steps: 56             # 28 候補軌道の時間ステップ数（データ点数）
       model_dt: 0.05            # 各時間ステップのdt（時間間隔）の長さ（秒単位）
       batch_size: 1000         # 特定の反復において、現在の最適制御シーケンスからランダムにサンプリングされた候補軌道の数。50 Hzでは1000、30 Hzでは2000が良好な結果をもたらす模様。
-      ax_max: 3.0  # 3.0
-      ax_min: -6.0  # -3.0
+      ax_max: 6.0  # 3.0
+      ax_min: -12.0  # -6.0
       ay_max: 3.0
       ay_min: -3.0
       az_max: 6.0  # 3.5
-      vx_std: 0.5  # 0.2  
+      vx_std: 1.0  # 0.5  
       vy_std: 0.1
-      wz_std: 0.2 # 0.4
+      wz_std: 2.0 # 0.2
       vx_max: 0.6  # 0.5
       vx_min: -0.6
       vy_max: 0.5
@@ -174,7 +174,7 @@ controller_server:
           "PreferForwardCritic",
         ]
       ConstraintCritic:  # 動的または運動学的制約の範囲外にある成分を含む軌道の評価を下げる   
-        enabled: false
+        enabled: true
         cost_power: 1
         cost_weight: 4.0
       GoalCritic:        # 目標に適切な距離まで近づいた際に、目標に向かって移動するよう促す
@@ -205,7 +205,7 @@ controller_server:
       PathAlignCritic: # 経路に沿うように誘導する。軌道の点が経路から遠いほど、コストが上がる。軌道の点が経路から近いほど、コストが下がる。
         enabled: true
         cost_power: 1
-        cost_weight: 10.0
+        cost_weight: 5.0
         max_path_occupancy_ratio: 0.05
         trajectory_point_step: 4
         threshold_to_consider: 0.5
@@ -214,8 +214,8 @@ controller_server:
       PathFollowCritic:    # 経路に沿って移動するように誘導する。軌道の点が経路から遠いほど、コストが上がる。
         enabled: true
         cost_power: 1
-        cost_weight: 20.0
-        offset_from_furthest: 10
+        cost_weight: 5.0 # 20
+        offset_from_furthest: 10 # 10
         threshold_to_consider: 0.5
       PathAngleCritic: # このクリティカル点は、経路に対して相対的な角度が大きい軌道をペナルティの対象とします
         enabled: true
@@ -225,6 +225,15 @@ controller_server:
         threshold_to_consider: 0.5 # ロボットと目標地点との距離（m）。この距離に達すると、経路の角度を考慮しなくなり、目標地点の判定ロジックが優先される。
         max_angle_to_furthest: 1.0
         mode: 2
+      VelocityDeadbandCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 35.0
+        deadband_velocities: [0.2, 0.01, 0.05]
+      # TwirlingCritic:
+      #   enabled: true
+      #   twirling_cost_power: 1
+      #   twirling_cost_weight: 10.0
 
 local_costmap:
   local_costmap:
@@ -499,8 +508,8 @@ velocity_smoother:
     feedback: "OPEN_LOOP"
     max_velocity: [1.0, 0.0, 0.5]
     min_velocity: [-1.0, 0.0, -0.5]
-    max_accel: [0.7, 0.0, 1.0]
-    max_decel: [-2.0, 0.0, -2.0]
+    max_accel: [0.35, 0.0, 0.5]
+    max_decel: [-1.0, 0.0, -1.0]
     odom_topic: /d37pxi/odom_pose
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
