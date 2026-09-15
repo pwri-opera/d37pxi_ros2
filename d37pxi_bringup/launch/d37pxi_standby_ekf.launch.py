@@ -35,7 +35,7 @@ def wait_for_opaque_function(context):
 def rewrite_nav_params(context, **kwargs):
     global configured_params
     d37pxi_navigation_dir = get_package_share_directory('d37pxi_navigation')
-    navigation_parameters_sim_yaml_file = os.path.join(d37pxi_navigation_dir, 'params', 'navigation_parameters_sim.yaml')
+    navigation_parameters_sim_yaml_file = os.path.join(d37pxi_navigation_dir, 'params', 'navigation_mppi.yaml')
     map_yaml_file = LaunchConfiguration('map', default=os.path.join(d37pxi_navigation_dir, 'map', 'map.yaml'))
 
     param_substitutions_nav = {
@@ -48,7 +48,7 @@ def rewrite_nav_params(context, **kwargs):
         'amcl.ros__parameters.odom_frame_id': tf_prefix_val+'/odom',
 
         #component_container_isolated
-        'component_container\isolated.ros__parameters.autostart': str(use_autostart),
+        # 'component_container\isolated.ros__parameters.autostart': str(use_autostart),
         
         # bt_navigator
         'bt_navigator.ros__parameters.robot_base_frame': tf_prefix_val+'/base_link',
@@ -169,16 +169,16 @@ def generate_nodes(context, *args, **kwargs):
                             'use_sim_time': use_sim_time}]
         ),
         # 擬似的なオドメトリをGNSS測位データより取得
-        # Node(
-        #     package="d37pxi_navigation",
-        #     executable="odom_pose",
-        #     namespace=common_prefix_val,
-        #     name="odom_pose",
-        #     parameters=[{'global_pose': '/'+common_prefix_val+"/tracking/ground_truth",
-        #                  'odom_pose': '/'+common_prefix_val+"/odom_pose"},
-        #                 {'use_sim_time': use_sim_time}],
-        #     output="screen",
-        # ),            
+        Node(
+            package="d37pxi_navigation",
+            executable="odom_pose",
+            namespace=common_prefix_val,
+            name="odom_pose",
+            parameters=[{'global_pose': '/'+common_prefix_val+"/tracking/ground_truth",
+                         'odom_pose': '/'+common_prefix_val+"/odom_pose"},
+                        {'use_sim_time': use_sim_time}],
+            output="screen",
+        ),            
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
