@@ -164,8 +164,8 @@ def generate_nodes(context, *args, **kwargs):
             output="screen",
             parameters=[{'odom_header_frame': "world",
                             'odom_child_frame': tf_prefix_val+"/base_link",
-                            'poseStamped_topic_name': '/'+common_prefix_val+"/gnss_compass/global_pose",
-                            'odom_topic_name': '/'+common_prefix_val+"/global_pose",
+                            'poseStamped_topic_name': '/'+common_prefix_val+"/global_pose",
+                            'odom_topic_name': '/'+common_prefix_val+"/gnss_odom",
                             'use_sim_time': use_sim_time}]
         ),
         # 擬似的なオドメトリをGNSS測位データより取得
@@ -174,9 +174,8 @@ def generate_nodes(context, *args, **kwargs):
             executable="odom_pose",
             namespace=common_prefix_val,
             name="odom_pose",
-            parameters=[{'global_pose': '/'+common_prefix_val+"/tracking/ground_truth",
-                         'odom_pose': '/'+common_prefix_val+"/odom_pose"},
-                        {'use_sim_time': use_sim_time}],
+            parameters=[{'use_sim_time': use_sim_time}],
+            remappings=[('global_pose', '/'+common_prefix_val+'/gnss_odom')],
             output="screen",
         ),            
         Node(
@@ -217,7 +216,7 @@ def generate_nodes(context, *args, **kwargs):
             output="screen",
             remappings=[('odometry/filtered', '/'+common_prefix_val+'/odometry/global'),
                         ('odom0', '/'+common_prefix_val+'/odom_pose'),
-                        ('odom1','/'+common_prefix_val+"/global_pose")],
+                        ('odom1','/'+common_prefix_val+"/gnss_odom")],
             parameters=[configured_ekf_params,
                         {'map_frame': "map",
                             'world_frame': "map",
