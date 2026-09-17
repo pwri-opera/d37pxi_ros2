@@ -72,22 +72,10 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-## 用途別の起動方法
+## 用途別の起動方法（リンク参照）
 
-### 1. OperaSim-AGX
-TBD
-<!-- ```bash
-ros2 launch d37pxi_unity d37pxi_standby_ekf.launch.py \
-  common_prefix:=d37pxi use_rviz:=true
-``` -->
-
-### 2. 実機
-TBD
-<!-- ```bash
-ros2 launch d37pxi_bringup d37pxi_standby_ekf.launch.py \
-  common_prefix:=d37pxi use_rviz:=true
-``` -->
-
+- [OperaSim-AGXで利用する場合（TBD）](doc/operasim_agx.md)
+- [実機で利用する場合](doc/real_machine.md)
 
 ## 主要な設定とインターフェース
 
