@@ -13,7 +13,7 @@ Panels:
         - /Path2
         - /Path3
       Splitter Ratio: 0.41637009382247925
-    Tree Height: 428
+    Tree Height: 268
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -360,6 +360,27 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /d37pxi/controller_server/optimal_path
       Value: true
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz_default_plugins/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: PoseArray
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Arrow (Flat)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d37pxi/waypoints
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 222; 221; 218
@@ -401,7 +422,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 60.65930938720703
+      Scale: 17.835599899291992
       Target Frame: d37pxi_tf/base_link
       Value: TopDownOrtho (rviz_default_plugins)
       X: 0.7099809646606445
@@ -410,12 +431,12 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 752
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002340000039efc0200000002fb000000100044006900730070006c006100790073010000003d0000022f000000c900fffffffb0000000a00560069006500770073010000027200000169000000a400ffffff000005000000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000023400000296fc0200000002fb000000100044006900730070006c006100790073010000003d0000018f000000c900fffffffb0000000a0056006900650077007301000001d200000101000000a400ffffff000003310000029600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1850
+  Width: 1387
   X: 70
-  Y: 27
+  Y: 55

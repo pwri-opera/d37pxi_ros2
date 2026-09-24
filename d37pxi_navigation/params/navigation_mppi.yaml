@@ -54,7 +54,7 @@ bt_navigator:
     default_nav_through_poses_bt_xml: ""
     default_nav_to_pose_bt_xml: ""
     bt_loop_duration: 100
-    default_server_timeout: 20
+    default_server_timeout: 500
     wait_for_service_timeout: 1000
     action_server_result_timeout: 900.0
     navigators: ["navigate_to_pose", "navigate_through_poses"]
@@ -118,7 +118,7 @@ controller_server:
       plugin: "nav2_controller::PoseProgressChecker"
       required_movement_radius: 0.2
       required_movement_angle: 0.3
-      movement_time_allowance: 10.0
+      movement_time_allowance: 60.0
     # Goal checker parameters
     #precise_goal_checker:
     #  plugin: "nav2_controller::SimpleGoalChecker"

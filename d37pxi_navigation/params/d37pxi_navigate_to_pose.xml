@@ -1,11 +1,14 @@
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-    <Sequence name="PlanOnceThenFollow">
-      <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+    <PipelineSequence name="ReplanOnGoalUpdateThenFollow">
+      <!-- Recompute the path when waypoint_server preempts the current goal. -->
+      <GoalUpdatedController>
+        <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+      </GoalUpdatedController>
       <FollowPath
         path="{path}"
         controller_id="FollowPath"
         goal_checker_id="general_goal_checker"/>
-    </Sequence>
+    </PipelineSequence>
   </BehaviorTree>
 </root>
