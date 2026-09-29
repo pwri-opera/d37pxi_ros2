@@ -18,4 +18,9 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+install(PROGRAMS
+  script/mc_control_gui.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
