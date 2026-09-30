@@ -5,7 +5,9 @@ mode: trinary
 # resolution: 0.05
 # origin: [-125, -125, 0]
 resolution: 0.05
-origin: [21331, 13952, 0]
+# Original world origin [21331, 13952] minus world_to_map XY offset.
+# The third value is yaw (radians), not altitude.
+origin: [-64.178, -82.450, 0]
 negate: 0
 occupied_thresh: 0.65
 free_thresh: 0.2

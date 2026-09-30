@@ -137,9 +137,11 @@ def generate_nodes(context, *args, **kwargs):
             executable='static_transform_publisher',
             namespace=common_prefix_val,
             name='world_to_map',
-            arguments=['--x', '0', 
-                        '--y', '0', 
-                        '--z', '0', 
+            # map origin in world; map coordinates = world coordinates - offset.
+            # Keep d37pxi_navigation/map/map.yaml origin aligned with this offset.
+            arguments=['--x', '21395.178',
+                        '--y', '14034.450',
+                        '--z', '28.552',
                         '--roll', '0', 
                         '--pitch', '0', 
                         '--yaw', '0', 
