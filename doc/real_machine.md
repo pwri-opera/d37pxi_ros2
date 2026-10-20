@@ -14,7 +14,7 @@
 ### 起動方法
 
 1. 車載PCに リモートデスクトップに接続 or ssh でログイン
-2. 車載PCホームディレクトリ直下の ``setup_can.sh`` を実行
+2. ~車載PCホームディレクトリ直下の ``setup_can.sh`` を実行~ (d37pxi-can-setup.serviceで自動起動に変更)
 3. ターミナルを立ち上げ以下を実行
 ```bash
 ros2 launch d37pxi_com3_ros com3_ros.launch.py
